@@ -45,14 +45,15 @@ df_legacy['SYS_INGEST_FLAG'] = 'Y'
 print("Connecting to legacy MSSQL Database...")
 # Use the pyodbc driver. (Ensure you have ODBC Driver 17 or 18 for SQL Server installed on your OS)
 connection_string = (
-        f"DRIVER={{ODBC Driver 18 for SQL Server}};"
-        f"SERVER={db_host},{db_port};"
-        f"DATABASE=master;"
-        f"UID={db_user};"
-        f"PWD={db_password};"
-        f"Encrypt=no;"
-        f"TrustServerCertificate=yes;"
-    )
+    "DRIVER={ODBC Driver 18 for SQL Server};"
+    f"SERVER=tcp:{db_host},{db_port};"
+    "DATABASE=master;"
+    f"UID={db_user};"
+    f"PWD={db_password};"
+    "Encrypt=no;"
+    "TrustServerCertificate=yes;"
+    "Connection Timeout=10;"
+)
 
 params = urllib.parse.quote_plus(connection_string)
 

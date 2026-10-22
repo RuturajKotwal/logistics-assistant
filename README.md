@@ -151,35 +151,8 @@ For a terminal-based interaction, run:
 python src/orchestrator.py
 ```
 
-The CLI runner loads `src/prompts/system_prompt.txt`; the Streamlit UI currently does not. The CLI remains dependent on the same configured services.
-
-## Results and examples
-
-The primary output is a natural-language response in the chat interface, with expandable tool arguments and raw tool results. The repository includes a historical example in `Misc/agent_runs/orchestrator_run_1.txt`, but its outputs are not current validation results and should not be treated as a performance benchmark. No screenshots, evaluation metrics, or automated example-results are included.
-
-## Project status and limitations
-
-This is an integration prototype with a documented two-instance EC2 deployment: Dockerized SQL Server on a private database host and a publicly reachable Streamlit application host. No current end-to-end execution or live AWS network configuration was verified. It also requires Pinecone, a chat model endpoint, credentials, and an ODBC driver. Important gaps include the missing UI system prompt, in-memory-only chat state, best-effort audit writes, incomplete SQL query validation, and inconsistencies in the manual deployment workflow.
-
-The dataset contains 32,065 rows and 26 fields, but has no shipment ID or commodity type, and most feature units and semantics are undocumented. There is no implemented forecasting, trained machine-learning model, route optimization, automated dispatch, test suite, or model evaluation. The checked-in setup instructions, script names, model names, and deployment service paths contain inconsistencies that should be resolved before relying on them.
-
-## Future work
-
-- Inject and test the same system prompt in both UI and CLI execution paths.
-- Enforce view-only SQL access at the database boundary and validate query structure.
-- Add data dictionary, provenance/license details, stable shipment identifiers, and commodity metadata.
-- Add automated tests for graph routing, retrieval behavior, tool error handling, and SOP threshold scenarios.
-- Provision audit table permissions consistently and define retention and tamper-evidence requirements.
-- Reconcile dependency pins, model/index settings, script names, and deployment paths.
-- Add reproducible infrastructure and deployment checks if hosted operation is a project goal.
-
-## License
-
-No project license file was found in the repository. The Kaggle dataset and third-party assets may have separate terms; confirm those terms before redistribution. No license is asserted by this README.
-
 ## Acknowledgments and references
 
 - Dataset source: [Logistics and supply chain dataset on Kaggle](https://www.kaggle.com/datasets/datasetengineer/logistics-and-supply-chain-dataset).
 - Weather source: [Open-Meteo API](https://open-meteo.com/).
 - Operational rules: `data/policy/Cold_Chain_Incident_SOP_v2.md`.
-- Architecture and business context: documents in `Misc/Materials/`.

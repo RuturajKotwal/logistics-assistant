@@ -121,7 +121,7 @@ if app_mode == "🧊 Dispatch Console":
     # TAB 1: CHAT UI & AGENT EXECUTION
     # ------------------------------------------
     st.title("Cold-Chain Incident Control Dashboard")
-    st.caption("Production Data Engineering Pipeline • Real-Time Decision Optimization Platform")
+    st.caption("Production Data Engineering Pipeline • Decision Optimization Platform")
 
     for entry in st.session_state.ui_messages:
         with st.chat_message(entry["role"], avatar="👤" if entry["role"] == "user" else "🤖"):

@@ -5,3 +5,4 @@ __pycache__/
 .python-version
 helpers/
 Misc/
+.DS_Store
